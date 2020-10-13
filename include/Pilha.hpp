@@ -21,6 +21,11 @@ template <class ItemType>
 class Pilha {
     public:
         Pilha() {};
+
+        /**
+         * Retorna true se a pilha não contém nenhum elemento.
+        */
+        bool isEmpty();
 };
 
 #endif //PILHA_HPP_INCLUDED
