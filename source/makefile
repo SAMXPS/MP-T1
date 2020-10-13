@@ -18,7 +18,7 @@ $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 TestaPilha: $(OBJ)
-	$(CC) -o ../bin/$@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -o ../bin/$@ $^ $(CFLAGS) $(LIBS) -lgtest -lpthread
 
 .PHONY: clean
 

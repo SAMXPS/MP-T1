@@ -4,10 +4,16 @@
 #define TipoPilha PilhaEncadeada
 
 #include <iostream>
+#include <gtest/gtest.h>
 
-int main() {
-    // TODO: Decidir se iremos usar GTEST ou CATCH para fazer os testes.
-    std::cout << "Programa compila e roda com sucesso" << std::endl;
+TEST(TesteInicial, Teste1) {
+    // Vamos ver se 2+1 = 3
+    // Só pra testar se o gtest está funcionando
+    ASSERT_EQ(3, 2+1);
+}
 
-    return 1;
+// Implementação de função main do gtest
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
