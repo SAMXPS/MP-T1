@@ -14,7 +14,7 @@ _OBJ = TestaPilha.o PilhaEncadeada.o PilhaVetor.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 TestaPilha: $(OBJ)
