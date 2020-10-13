@@ -6,6 +6,10 @@ TEST_F(TestaPilha, TestaConstrutor) {
     ASSERT_TRUE(pilha != NULL);
 }
 
+TEST_F(TestaPilha, TestaPilhaVazia) {
+    ASSERT_TRUE(pilha->isEmpty());
+}
+
 // Implementação de função main do gtest
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
