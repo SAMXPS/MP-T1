@@ -8,6 +8,13 @@ namespace _PilhaEncadeada {
     };
 }   
 
+// Método destrutor
+_PilhaEncadeada::_base::~_base() {
+    while(_elementCount > 0) {
+        free(pop());
+    }
+};
+
 bool  _PilhaEncadeada::_base::push(void* elemento, int size) {
     _elemento* e = (_elemento*) malloc(sizeof(_elemento));
     

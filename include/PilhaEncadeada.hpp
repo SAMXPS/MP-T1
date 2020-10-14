@@ -14,18 +14,13 @@ namespace _PilhaEncadeada {
             _elemento* _top = nullptr;
 
         public:
-            ~_base() {
-                while(_elementCount > 0) {
-                    free(pop());
-                }
-            };
+            ~_base();
 
             bool  push(void* data, int size);
             void* pop();
             void* top();
             int   elementCount();
     };
-
 };
 
 template <class ItemType>
