@@ -50,9 +50,14 @@ class PilhaEncadeada : public Pilha<ItemType> {
         }
 
         bool push(ItemType elemento) {
+            if (isFull())
+                return false;
+                
             ItemType* data = (ItemType*) malloc(sizeof(ItemType));
             memcpy(data, &elemento, sizeof(ItemType));
             base->push(data);
+
+            return true;
         }
 
         ItemType* pop() {
