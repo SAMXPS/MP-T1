@@ -15,7 +15,9 @@ namespace _PilhaEncadeada {
 
         public:
             ~_base() {
-                // TODO: implementar destrutor
+                while(_elementCount > 0) {
+                    free(pop());
+                }
             };
 
             bool  push(void* data, int size);
