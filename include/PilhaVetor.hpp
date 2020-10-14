@@ -10,6 +10,7 @@ class PilhaVetor : public Pilha<ItemType> {
 
         bool isEmpty();
         bool isFull();
+        bool push(ItemType* elemento);
         bool push(ItemType elemento);
         ItemType* pop(); 
         ItemType* top();

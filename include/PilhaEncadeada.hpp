@@ -1,20 +1,21 @@
 #ifndef PILHAENCADEADA_HPP_INCLUDED
 #define PILHAENCADEADA_HPP_INCLUDED
 #include "Pilha.hpp"
+#include <iostream>
+#include <stdlib.h> // maloc
+#include <string.h> // memcpy
 
 namespace _PilhaEncadeada {
-    
     struct _elemento;
 
     class _base {
         private:
-            int _elementSize;
             int _elementCount = 0;
             _elemento* _top = nullptr;
 
         public:
-            _base(int elementSize) {
-                this->_elementSize = elementSize;
+            ~_base() {
+                // TODO: implementar destrutor
             };
 
             bool  push(void* data);
@@ -33,7 +34,7 @@ class PilhaEncadeada : public Pilha<ItemType> {
 
     public:
         PilhaEncadeada() {
-            base = new _PilhaEncadeada::_base(sizeof(ItemType));
+            base = new _PilhaEncadeada::_base();
         }
 
         ~PilhaEncadeada() {
@@ -49,7 +50,13 @@ class PilhaEncadeada : public Pilha<ItemType> {
         }
 
         bool push(ItemType elemento) {
+            void* data = malloc(sizeof(ItemType));
+            memcpy(&elemento, data, sizeof(ItemType));
             base->push(&elemento);
+        }
+
+        bool push(ItemType* elemento) {
+            base->push(elemento);
         }
 
         ItemType* pop() {
