@@ -15,16 +15,10 @@ class Pilha {
         virtual bool isFull() = 0;
 
         /**
-         * Coloca ponteiro para elemento no topo da pilha.
-         * Retorna true em caso de sucesso, false em caso de falha.
-         */
-        virtual bool push (ItemType* elemento) = 0;
-
-        /**
          * Copia elemento e o coloca no topo da pilha.
          * Retorna true em caso de sucesso, false em caso de falha.
          */
-        virtual bool push (ItemType elemento) = 0;
+        virtual bool push(ItemType elemento) = 0;
 
         /**
          * Retira elemento do topo da pilha – retorna um elemento.
