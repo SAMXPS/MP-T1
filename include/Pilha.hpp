@@ -21,7 +21,11 @@ class Pilha {
         virtual bool push(ItemType elemento) = 0;
 
         /**
-         * Retira elemento do topo da pilha – retorna um elemento.
+         * Retira o elemento do topo da pilha.
+         * Retorna ponteiro para o elemento retirado.
+         * Caso ocorra falha, é retornado ponteiro para nulo.
+         * 
+         * Nota: é necessario rodar função free() no elemento retornado, dependendo da implementação usada.
          */
         virtual ItemType* pop() = 0; 
 

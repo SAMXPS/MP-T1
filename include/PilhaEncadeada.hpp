@@ -55,10 +55,6 @@ class PilhaEncadeada : public Pilha<ItemType> {
             base->push(data);
         }
 
-        bool push(ItemType* elemento) {
-            base->push(elemento);
-        }
-
         ItemType* pop() {
             return (ItemType*) base->pop();
         }

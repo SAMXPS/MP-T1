@@ -15,8 +15,8 @@ TEST_F(TestaPilha, TestaPilhaVazia) {
 
 // Teste em que se adiciona 2 elementos depois os retiram
 TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
-    int a = 90;
-    int b = 50;
+    const int a = 90;
+    const int b = 50;
     int* topo = nullptr;
     int* retirada = nullptr;
 
@@ -66,6 +66,27 @@ TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
 
     free(retirada);
     retirada = topo = nullptr;
+}
+
+TEST_F(TestaPilha, TestaMudarTamanho1) {
+    ASSERT_TRUE(pilha->setCapacity(2));
+    
+    const int A = 99, B = 77; // Valores quaisquer
+
+    ASSERT_TRUE(pilha->push(A));
+    ASSERT_TRUE(pilha->push(B));
+
+    // A pilha deve estar cheia com 2 elementos
+    ASSERT_TRUE(pilha->isFull());
+
+    // Não deve ser possível adicionar mais um elemento
+    ASSERT_FALSE(pilha->push(B));
+    ASSERT_EQ(pilha->elementCount(), 2);
+
+    free(pilha->pop());
+    free(pilha->pop());
+
+    ASSERT_TRUE(pilha->isEmpty());
 }
 
 // Implementação de função main do gtest
