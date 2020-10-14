@@ -38,16 +38,8 @@ class PilhaEncadeada : public Pilha<ItemType> {
             delete base;
         }
 
-        bool isEmpty() {
-            return elementCount() == 0;
-        }
-
-        bool isFull() {
-            return capacity != -1 && elementCount() == capacity;
-        }
-
         bool push(ItemType elemento) {
-            if (isFull()) return false;
+            if (Pilha<ItemType>::isFull()) return false;
             base->push(&elemento, sizeof(ItemType));
             return true;
         }

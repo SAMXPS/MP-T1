@@ -7,12 +7,16 @@ class Pilha {
         /**
          * Retorna true se a pilha não contém nenhum elemento.
          */
-        virtual bool isEmpty() = 0;
+        bool isEmpty() {
+            return elementCount() == 0;
+        }
 
         /**
          * Retorna verdadeiro se a pilha está cheia, falso caso contrário.
          */
-        virtual bool isFull() = 0;
+        bool isFull() {
+            return getCapacity() != -1 && elementCount() == getCapacity();
+        }
 
         /**
          * Copia elemento e o coloca no topo da pilha.
@@ -35,7 +39,8 @@ class Pilha {
         virtual ItemType* top() = 0;
 
         /**
-         * Retorna int tamanho da pilha
+         * Retorna int tamanho da pilha.
+         * Pode retornar -1 se a pilha não tiver limite de tamanho (e for dinamicamente alocada).
          */
         virtual int elementCount() = 0;
 
