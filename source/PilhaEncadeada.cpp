@@ -8,14 +8,21 @@ namespace _PilhaEncadeada {
     };
 }   
 
-bool  _PilhaEncadeada::_base::push(void* elemento) {
+bool  _PilhaEncadeada::_base::push(void* elemento, int size) {
     _elemento* e = (_elemento*) malloc(sizeof(_elemento));
     
     if (e == nullptr)
         return false;
 
     e->next = _top;
-    e->data = elemento;
+    e->data = malloc(size);
+
+    if (e->data == nullptr) {
+        free(e);
+        return false;
+    }
+
+    memcpy(e->data, &elemento, size);
 
     _top = e;
     _elementCount++;

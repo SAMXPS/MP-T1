@@ -18,7 +18,7 @@ namespace _PilhaEncadeada {
                 // TODO: implementar destrutor
             };
 
-            bool  push(void* data);
+            bool  push(void* data, int size);
             void* pop();
             void* top();
             int   elementCount();
@@ -50,13 +50,8 @@ class PilhaEncadeada : public Pilha<ItemType> {
         }
 
         bool push(ItemType elemento) {
-            if (isFull())
-                return false;
-                
-            ItemType* data = (ItemType*) malloc(sizeof(ItemType));
-            memcpy(data, &elemento, sizeof(ItemType));
-            base->push(data);
-
+            if (isFull()) return false;
+            base->push(&elemento, sizeof(ItemType));
             return true;
         }
 
