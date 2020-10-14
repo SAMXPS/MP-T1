@@ -22,7 +22,7 @@ bool  _PilhaEncadeada::_base::push(void* elemento, int size) {
         return false;
     }
 
-    memcpy(e->data, &elemento, size);
+    memcpy(e->data, elemento, size);
 
     _top = e;
     _elementCount++;
