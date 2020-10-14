@@ -8,6 +8,9 @@ TEST_F(TestaPilha, TestaConstrutor) {
 
 TEST_F(TestaPilha, TestaPilhaVazia) {
     ASSERT_TRUE(pilha->isEmpty());
+    ASSERT_TRUE(pilha->elementCount() == 0);
+    ASSERT_TRUE(pilha->top() == nullptr);
+    ASSERT_TRUE(pilha->pop() == nullptr);
 }
 
 // Implementação de função main do gtest
