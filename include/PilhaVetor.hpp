@@ -11,6 +11,7 @@ namespace _PilhaVetor {
             int _elementSize;
             int _elementCount = 0;
             int _capacity;
+            int _capacity_allocated;
             void* _data;
         public:
             _base(int elementSize, int capacity); 

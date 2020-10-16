@@ -52,6 +52,11 @@ bool _PilhaVetor::_base::setCapacity(int capacity) {
     if (capacity < _elementCount)
         return false;
 
+    if (_data != nullptr && _capacity_allocated < capacity) {
+        _capacity = capacity;
+        return true;
+    }
+
     void* newdata = malloc(_elementSize * capacity);
 
     if (newdata == nullptr) 
@@ -62,9 +67,10 @@ bool _PilhaVetor::_base::setCapacity(int capacity) {
             memcpy(newdata, _data, _elementSize * _elementCount);
         free(_data);
     }
-    
+
     _data = newdata;
     _capacity = capacity;
+    _capacity_allocated = capacity;
 
     return true;
 }
