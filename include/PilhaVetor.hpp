@@ -39,7 +39,9 @@ class PilhaVetor : public Pilha<ItemType> {
             delete base;
         }
 
-        bool push(ItemType elemento);
+        bool push(ItemType elemento) {
+            return base->push(&elemento);
+        }
 
         ItemType* pop() {
             return (ItemType*) base->pop();
