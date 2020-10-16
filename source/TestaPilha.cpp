@@ -1,6 +1,7 @@
 #define TipoPilha PilhaVetor
 #include "../include/TestaPilha.hpp"
 #include <iostream>
+#include <stdlib.h> // rand()
 
 // Função que faz free no ponterio baseado se a pilha é dinamicamente alocada.
 template<class T>
@@ -110,6 +111,68 @@ TEST_F(TestaPilha, TestaMudarTamanho1) {
     _coditionalFree(pilha, pilha->pop());
 
     ASSERT_TRUE(pilha->isEmpty());
+}
+
+TEST_F(TestaPilha, TestaAdicionaAteLimite) {
+    int tamanho_inicial = pilha->getCapacity();
+    
+    std::cout << "Tamanho inicial é: " << tamanho_inicial << std::endl;
+
+    int tamanho_teste = tamanho_inicial == -1 ? 25 : tamanho_inicial;
+
+    int valores_aleatorios[tamanho_teste];
+    for (int i = 0; i < tamanho_teste; i++) {
+        valores_aleatorios[i] = rand();
+        ASSERT_TRUE(pilha->push(valores_aleatorios[i]));
+    }
+    
+    ASSERT_TRUE(tamanho_inicial == -1 || pilha->isFull());
+    ASSERT_FALSE(tamanho_inicial != -1 && pilha->push(rand()));
+
+    for (int i = 0; i < tamanho_teste; i++) {
+        int* pop = pilha->pop();
+        ASSERT_EQ(*pop, valores_aleatorios[tamanho_teste - i - 1]);
+        _coditionalFree(pilha, pop);
+    }
+
+    ASSERT_TRUE(pilha->isEmpty());
+}
+
+TEST(TestaPilhaVetor, TestaMudarTamanho) {
+    TipoPilha<TipoItem>* pilha = new TipoPilha<TipoItem>();
+
+    if (!pilha->isDynamicAllocated()) {
+
+        int tamanho_inicial = pilha->getCapacity();
+        int tamanho_teste = tamanho_inicial * 5;
+
+        int valores_aleatorios[tamanho_teste];
+        for (int i = 0; i < tamanho_teste; i++) {
+            valores_aleatorios[i] = rand();
+        }
+        
+        for (int i = 0; i < pilha->getCapacity(); i++) {
+            ASSERT_TRUE(pilha->push(valores_aleatorios[i]));
+        }
+
+        ASSERT_FALSE(pilha->setCapacity(tamanho_inicial - 1)) << "O tamanho da pilha não pode ser menor que a quantidade de elementos contidos nela.";
+        ASSERT_TRUE(pilha->setCapacity(tamanho_teste)) << "Algo errado ocorreu ao dobrar o tamanho da pilha.";
+
+        for (int i = tamanho_inicial; i < tamanho_teste; i++) {
+            ASSERT_TRUE(pilha->push(valores_aleatorios[i]));
+        }
+
+        for (int i = 0; i < tamanho_teste; i++) {
+            int* pop = pilha->pop();
+            ASSERT_EQ(*pop, valores_aleatorios[tamanho_teste - i - 1]);
+        }
+
+        ASSERT_TRUE(pilha->isEmpty());
+    } else {
+        std::cout << "teste ignorado para pilhas dinamicamente alocadas" << std::endl;
+    }
+
+    delete pilha;
 }
 
 // Implementação de função main do gtest
