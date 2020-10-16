@@ -21,6 +21,7 @@ namespace _PilhaVetor {
             void* top();
             int   elementCount();
             int   getCapacity();
+            bool  setCapacity(int capacity);
     };
 };
 
@@ -34,12 +35,19 @@ class PilhaVetor : public Pilha<ItemType> {
             base = new _PilhaVetor::_base(sizeof(ItemType), TAMANHO_DEFAULT);
         }
 
-        ~PilhaVetor();
+        ~PilhaVetor() {
+            delete base;
+        }
 
         bool push(ItemType elemento);
 
-        ItemType* pop(); 
-        ItemType* top();
+        ItemType* pop() {
+            return (ItemType*) base->pop();
+        }
+
+        ItemType* top() {
+            return (ItemType*) base->top();
+        }
 
         int getCapacity() {
             return base->getCapacity();
@@ -47,6 +55,10 @@ class PilhaVetor : public Pilha<ItemType> {
 
         bool setCapacity(int capacity) {
             return base->setCapacity(capacity);
+        }
+        
+        int elementCount() {
+            return base->elementCount();
         }
 };
 

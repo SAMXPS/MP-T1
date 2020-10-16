@@ -5,7 +5,10 @@
 #include "PilhaEncadeada.hpp"
 #include "PilhaVetor.hpp"
 
+#ifndef TipoPilha
 #define TipoPilha PilhaEncadeada
+#endif  // TipoPilha
+
 #define TipoItem int
 
 #include <gtest/gtest.h>

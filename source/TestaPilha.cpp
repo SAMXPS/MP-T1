@@ -1,3 +1,4 @@
+#define TipoPilha PilhaVetor
 #include "../include/TestaPilha.hpp"
 #include <iostream>
 
