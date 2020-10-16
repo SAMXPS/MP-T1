@@ -4,12 +4,8 @@
 #include <string.h> // memcpy()
 
 _PilhaVetor::_base::_base(int elementSize, int capacity) {
-    _capacity = capacity;
     _elementSize = elementSize;
-    _data = malloc(elementSize * capacity);
-
-    if (_data == nullptr) 
-        throw std::bad_alloc();
+    setCapacity(capacity);
 }
 
 _PilhaVetor::_base::~_base() {
@@ -56,5 +52,19 @@ bool _PilhaVetor::_base::setCapacity(int capacity) {
     if (capacity < _elementCount)
         return false;
 
-    return false;
+    void* newdata = malloc(_elementSize * capacity);
+
+    if (newdata == nullptr) 
+        throw std::bad_alloc();
+
+    if (_data != nullptr) {
+        if (_elementCount > 0)
+            memcpy(newdata, _data, _elementSize * _elementCount);
+        free(_data);
+    }
+    
+    _data = newdata;
+    _capacity = capacity;
+
+    return true;
 }
