@@ -14,10 +14,8 @@ TEST_F(TestaPilha, TestaPilhaVazia) {
     ASSERT_TRUE(pilha->pop() == nullptr);
 }
 
-// Teste em que se adiciona 2 elementos depois os retiram
-TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
-    const int a = 90;
-    const int b = 50;
+TEST_F(TestaPilha, TestaAdicionaA) {
+    const int a = 77;
     int* topo = nullptr;
     int* retirada = nullptr;
 
@@ -29,10 +27,27 @@ TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
 
     topo = pilha->top();
     ASSERT_TRUE(topo != nullptr);
-    
-    // DEBUG std::cout << *topo << std::endl;
-    
     ASSERT_TRUE(*topo == a);
+
+    retirada = pilha->pop();
+    ASSERT_TRUE(retirada == topo);
+    ASSERT_TRUE(*retirada == a);
+    
+    free(retirada);
+
+    ASSERT_TRUE(pilha->isEmpty());
+    ASSERT_TRUE(pilha->top() == nullptr);
+}
+
+// Teste em que se adiciona 2 elementos depois os retiram
+TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
+    const int a = 90;
+    const int b = 50;
+    int* topo = nullptr;
+    int* retirada = nullptr;
+
+    // Acrescentando elemento A
+    pilha->push(a);
 
     // Acrescentando elemento B
     ASSERT_TRUE(pilha->push(b));
