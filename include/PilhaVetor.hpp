@@ -38,6 +38,10 @@ class PilhaVetor : public Pilha<ItemType> {
         ~PilhaVetor() {
             delete base;
         }
+        
+        bool isDynamicAllocated() {
+            return false;
+        }
 
         bool push(ItemType elemento) {
             return base->push(&elemento);

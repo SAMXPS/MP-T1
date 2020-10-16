@@ -4,6 +4,15 @@
 template <class ItemType>
 class Pilha {
     public:
+
+        /**
+         * Retorna true se a pilha é dinamicamente alocada.
+         * Nota: se a pilha for dinamicamente alocada, 
+         * o elemento deve ser liberado pela função free()
+         * após uso da função pop()
+         */
+        virtual bool isDynamicAllocated() = 0;
+
         /**
          * Retorna true se a pilha não contém nenhum elemento.
          */
@@ -29,7 +38,8 @@ class Pilha {
          * Retorna ponteiro para o elemento retirado.
          * Caso ocorra falha, é retornado ponteiro para nulo.
          * 
-         * Nota: é necessario rodar função free() no elemento retornado, dependendo da implementação usada.
+         * Nota: Caso a pilha seja dinamicamente alocada, i.e, isDynamicAllocated() == true,
+         * é necessario rodar função free() no elemento retornado.
          */
         virtual ItemType* pop() = 0; 
 

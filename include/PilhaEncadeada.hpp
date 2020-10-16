@@ -38,6 +38,10 @@ class PilhaEncadeada : public Pilha<ItemType> {
             delete base;
         }
 
+        bool isDynamicAllocated() {
+            return true;
+        }
+
         bool push(ItemType elemento) {
             if (Pilha<ItemType>::isFull()) return false;
             base->push(&elemento, sizeof(ItemType));

@@ -2,6 +2,13 @@
 #include "../include/TestaPilha.hpp"
 #include <iostream>
 
+// Função que faz free no ponterio baseado se a pilha é dinamicamente alocada.
+template<class T>
+void _coditionalFree(Pilha<T>* pilha, T* pointer) {
+    if (pilha->isDynamicAllocated())
+        free(pointer);
+}
+
 TEST_F(TestaPilha, TestaConstrutor) {
     // Verificando se o construtor da pilha funciona.
     ASSERT_TRUE(pilha != NULL);
@@ -32,8 +39,8 @@ TEST_F(TestaPilha, TestaAdicionaA) {
     retirada = pilha->pop();
     ASSERT_TRUE(retirada == topo);
     ASSERT_TRUE(*retirada == a);
-    
-    free(retirada);
+
+    _coditionalFree(pilha, retirada);
 
     ASSERT_TRUE(pilha->isEmpty());
     ASSERT_TRUE(pilha->top() == nullptr);
@@ -65,7 +72,7 @@ TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
     ASSERT_TRUE(retirada == topo);
     ASSERT_TRUE(pilha->elementCount() == 1);
 
-    free(retirada);
+    _coditionalFree(pilha,retirada);
     retirada = topo = nullptr;
 
     topo = pilha->top();
@@ -80,7 +87,7 @@ TEST_F(TestaPilha, TestaAdicionaRetiraAB) {
     ASSERT_TRUE(pilha->elementCount() == 0);
     ASSERT_TRUE(pilha->isEmpty());
 
-    free(retirada);
+    _coditionalFree(pilha, retirada);
     retirada = topo = nullptr;
 }
 
@@ -99,8 +106,8 @@ TEST_F(TestaPilha, TestaMudarTamanho1) {
     ASSERT_FALSE(pilha->push(B));
     ASSERT_EQ(pilha->elementCount(), 2);
 
-    free(pilha->pop());
-    free(pilha->pop());
+    _coditionalFree(pilha, pilha->pop());
+    _coditionalFree(pilha, pilha->pop());
 
     ASSERT_TRUE(pilha->isEmpty());
 }
