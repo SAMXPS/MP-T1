@@ -1,0 +1,66 @@
+        -:    0:Source:PilhaEncadeada.cpp
+        -:    0:Graph:../bin/obj/PilhaEncadeada.gcno
+        -:    0:Data:../bin/obj/PilhaEncadeada.gcda
+        -:    0:Runs:5
+        -:    0:Programs:5
+        -:    1:#include "../include/PilhaEncadeada.hpp"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:namespace _PilhaEncadeada {
+        -:    5:    struct _elemento {
+        -:    6:        _elemento* next;
+        -:    7:        void* data;
+        -:    8:    };
+        -:    9:}   
+        -:   10:
+        -:   11:// Método destrutor
+       42:   12:_PilhaEncadeada::_base::~_base() {
+       21:   13:    while(_elementCount > 0) {
+    #####:   14:        free(pop());
+        -:   15:    }
+       21:   16:};
+        -:   17:
+       90:   18:bool  _PilhaEncadeada::_base::push(void* elemento, int size) {
+       90:   19:    _elemento* e = (_elemento*) malloc(sizeof(_elemento));
+        -:   20:    
+       90:   21:    if (e == nullptr)
+    #####:   22:        return false;
+        -:   23:
+       90:   24:    e->next = _top;
+       90:   25:    e->data = malloc(size);
+        -:   26:
+       90:   27:    if (e->data == nullptr) {
+    #####:   28:        free(e);
+    #####:   29:        return false;
+        -:   30:    }
+        -:   31:
+       90:   32:    memcpy(e->data, elemento, size);
+        -:   33:
+       90:   34:    _top = e;
+       90:   35:    _elementCount++;
+       90:   36:    return true;
+        -:   37:}
+        -:   38:
+       93:   39:void* _PilhaEncadeada::_base::pop() {
+       93:   40:    _elemento* e = _top;
+        -:   41:
+       93:   42:    if (e == nullptr)
+        3:   43:        return nullptr;
+        -:   44:
+       90:   45:    _top = e->next;
+       90:   46:    void* data = e->data;
+       90:   47:    free(e);
+       90:   48:    _elementCount--;
+       90:   49:    return data;
+        -:   50:}
+        -:   51:
+       24:   52:void* _PilhaEncadeada::_base::top() {
+       24:   53:    if (_top == nullptr)
+        6:   54:        return nullptr;
+        -:   55:
+       18:   56:    return _top->data;
+        -:   57:}
+        -:   58:
+       57:   59:int _PilhaEncadeada::_base::elementCount() {
+       57:   60:    return _elementCount;
+       15:   61:}

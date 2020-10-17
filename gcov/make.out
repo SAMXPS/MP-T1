@@ -1,0 +1,56 @@
+rm ../bin/obj/TestaPilha.*
+g++ -c -o ../bin/obj/TestaPilha.o TestaPilha.cpp -I../include -fprofile-arcs -ftest-coverage -lgtest -lpthread 
+g++ -o ../bin/TestaPilha ../bin/obj/TestaPilha.o ../bin/obj/PilhaEncadeada.o ../bin/obj/PilhaVetor.o -I../include -fprofile-arcs -ftest-coverage -lgtest -lpthread  -lm
+[==========] Running 7 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 6 tests from TestaPilha
+[ RUN      ] TestaPilha.TestaConstrutor
+[       OK ] TestaPilha.TestaConstrutor (0 ms)
+[ RUN      ] TestaPilha.TestaPilhaVazia
+[       OK ] TestaPilha.TestaPilhaVazia (0 ms)
+[ RUN      ] TestaPilha.TestaAdicionaA
+[       OK ] TestaPilha.TestaAdicionaA (0 ms)
+[ RUN      ] TestaPilha.TestaAdicionaRetiraAB
+[       OK ] TestaPilha.TestaAdicionaRetiraAB (0 ms)
+[ RUN      ] TestaPilha.TestaMudarTamanho1
+[       OK ] TestaPilha.TestaMudarTamanho1 (0 ms)
+[ RUN      ] TestaPilha.TestaAdicionaAteLimite
+[       OK ] TestaPilha.TestaAdicionaAteLimite (0 ms)
+[----------] 6 tests from TestaPilha (0 ms total)
+
+[----------] 1 test from TestaPilhaVetor
+[ RUN      ] TestaPilhaVetor.TestaMudarTamanho
+[       OK ] TestaPilhaVetor.TestaMudarTamanho (0 ms)
+[----------] 1 test from TestaPilhaVetor (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test cases ran. (0 ms total)
+[  PASSED  ] 7 tests.
+rm ../bin/obj/TestaPilha.*
+g++ -c -o ../bin/obj/TestaPilha.o TestaPilha.cpp -I../include -fprofile-arcs -ftest-coverage -lgtest -lpthread 
+g++ -o ../bin/TestaPilha ../bin/obj/TestaPilha.o ../bin/obj/PilhaEncadeada.o ../bin/obj/PilhaVetor.o -I../include -fprofile-arcs -ftest-coverage -lgtest -lpthread  -lm
+[==========] Running 7 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 6 tests from TestaPilha
+[ RUN      ] TestaPilha.TestaConstrutor
+[       OK ] TestaPilha.TestaConstrutor (0 ms)
+[ RUN      ] TestaPilha.TestaPilhaVazia
+[       OK ] TestaPilha.TestaPilhaVazia (0 ms)
+[ RUN      ] TestaPilha.TestaAdicionaA
+[       OK ] TestaPilha.TestaAdicionaA (0 ms)
+[ RUN      ] TestaPilha.TestaAdicionaRetiraAB
+[       OK ] TestaPilha.TestaAdicionaRetiraAB (0 ms)
+[ RUN      ] TestaPilha.TestaMudarTamanho1
+[       OK ] TestaPilha.TestaMudarTamanho1 (0 ms)
+[ RUN      ] TestaPilha.TestaAdicionaAteLimite
+[       OK ] TestaPilha.TestaAdicionaAteLimite (0 ms)
+[----------] 6 tests from TestaPilha (0 ms total)
+
+[----------] 1 test from TestaPilhaVetor
+[ RUN      ] TestaPilhaVetor.TestaMudarTamanho
+[       OK ] TestaPilhaVetor.TestaMudarTamanho (0 ms)
+[----------] 1 test from TestaPilhaVetor (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test cases ran. (0 ms total)
+[  PASSED  ] 7 tests.
