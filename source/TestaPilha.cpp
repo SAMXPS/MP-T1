@@ -1,6 +1,5 @@
-#define TipoPilha PilhaVetor
+#include "TestaPilhaTipo.cpp"
 #include "../include/TestaPilha.hpp"
-#include <iostream>
 #include <stdlib.h> // rand()
 
 // Função que faz free no ponterio baseado se a pilha é dinamicamente alocada.
@@ -115,8 +114,6 @@ TEST_F(TestaPilha, TestaMudarTamanho1) {
 
 TEST_F(TestaPilha, TestaAdicionaAteLimite) {
     int tamanho_inicial = pilha->getCapacity();
-    
-    std::cout << "Tamanho inicial é: " << tamanho_inicial << std::endl;
 
     int tamanho_teste = tamanho_inicial == -1 ? 25 : tamanho_inicial;
 
@@ -169,7 +166,7 @@ TEST(TestaPilhaVetor, TestaMudarTamanho) {
 
         ASSERT_TRUE(pilha->isEmpty());
     } else {
-        std::cout << "teste ignorado para pilhas dinamicamente alocadas" << std::endl;
+        // teste ignorado para pilhas dinamicamente alocadas
     }
 
     delete pilha;
