@@ -1,6 +1,6 @@
 IDIR =../include
 CC=g++
-CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR) -fprofile-arcs -ftest-coverage -lgtest -lpthread 
 
 ODIR=../bin/obj
 LDIR =../lib
@@ -18,9 +18,12 @@ $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 TestaPilha: $(OBJ)
-	$(CC) -o ../bin/$@ $^ $(CFLAGS) $(LIBS) -lgtest -lpthread
+	$(CC) -o ../bin/$@ $^ $(CFLAGS) $(LIBS)
 
-.PHONY: clean
+.PHONY: clean cleanTest
 
 clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+
+cleanTest:
+	rm $(ODIR)/TestaPilha.*
