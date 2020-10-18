@@ -44,7 +44,7 @@ g++ -o ../bin/TestaPilha ../bin/obj/TestaPilha.o ../bin/obj/PilhaEncadeada.o ../
 [       OK ] TestaPilha.TestaMudarTamanho1 (0 ms)
 [ RUN      ] TestaPilha.TestaAdicionaAteLimite
 [       OK ] TestaPilha.TestaAdicionaAteLimite (0 ms)
-[----------] 6 tests from TestaPilha (0 ms total)
+[----------] 6 tests from TestaPilha (1 ms total)
 
 [----------] 1 test from TestaPilhaVetor
 [ RUN      ] TestaPilhaVetor.TestaMudarTamanho
@@ -52,5 +52,5 @@ g++ -o ../bin/TestaPilha ../bin/obj/TestaPilha.o ../bin/obj/PilhaEncadeada.o ../
 [----------] 1 test from TestaPilhaVetor (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 7 tests from 2 test cases ran. (0 ms total)
+[==========] 7 tests from 2 test cases ran. (1 ms total)
 [  PASSED  ] 7 tests.
