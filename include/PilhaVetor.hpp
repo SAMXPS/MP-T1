@@ -26,6 +26,9 @@ namespace _PilhaVetor {
     };
 };
 
+/**
+ * Implementação de Pilha utilizando vetor (espaço contíguo de memória).
+*/
 template <class ItemType>
 class PilhaVetor : public Pilha<ItemType> {
     private:

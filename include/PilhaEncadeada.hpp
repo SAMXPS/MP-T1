@@ -23,6 +23,9 @@ namespace _PilhaEncadeada {
     };
 };
 
+/**
+ * Implementação de Pilha utilizando encadeamento, isto é ponteiros para próximo elemento e alocação dinâmica.
+*/
 template <class ItemType>
 class PilhaEncadeada : public Pilha<ItemType> {
     private:

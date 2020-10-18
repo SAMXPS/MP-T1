@@ -16,10 +16,12 @@ Métodos de Programação - 2020/1
     - PilhaVetor
     > Cada classe possui seus arquivos de header (.hpp) e implementação (.cpp)
 
-
 + Foi desconsiderada a implementação das funções ```CreateStack ()``` e ```DestroyStack ()```, uma vez que o C++ possui métodos construtores e métodos destrutores de objetos de classes.
 
 + Os métodos ```Size(pilha)``` e ```SetSize(pilha, int)``` foram renomeados, respectivamente, para ```Pilha::getCapacity()``` e ```Pilha::setCapacity(int)```. Isso foi feito com intuito de remover ambiguidade do termo _size_, que poderia ser interpretado tanto como _quantos elementos a pilha contém atualmente_ ou _quantos elementos cabem ao todo na pilha_. Dessa forma, o termo _capacity_ é mais direto e se refere à quantos elementos cabem ao todo na pilha.
+
++ Nota para correção: Favor desconsiderar documentação das classes __PilhaEncadeada_ e __PilhaVetor_ no doxygen. As classes importantes são
+Pilha, PilhaEncadeada e PilhaVetor.
 
 ## Organização do Trabalho
 
