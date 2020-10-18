@@ -1,3 +1,8 @@
+/*
+    Copyright (c) 2020 Samuel James
+    Implementação de Pilha feita por Samuel James.
+    https://github.com/SAMXPS
+*/
 #include "../include/PilhaEncadeada.hpp"
 #include <stdlib.h>
 

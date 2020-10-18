@@ -1,3 +1,8 @@
+/*
+    Copyright (c) 2020 Samuel James
+    Implementação de Pilha feita por Samuel James.
+    https://github.com/SAMXPS
+*/
 #include "../include/PilhaVetor.hpp"
 #include <stdlib.h> // malloc()
 #include <new>      // bad_alloc()

@@ -1,3 +1,8 @@
+/*
+    Copyright (c) 2020 Samuel James
+    Implementação de Pilha feita por Samuel James.
+    https://github.com/SAMXPS
+*/
 #ifndef PILHAVETOR_HPP_INCLUDED
 #define PILHAVETOR_HPP_INCLUDED
 #include "Pilha.hpp"
