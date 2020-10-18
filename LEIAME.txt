@@ -5,3 +5,12 @@ Matrícula: 190019948
 Por favor, ler arquivo README encontrado no repositório do github https://github.com/SAMXPS/MP-T1.
 Este repositório era privado e se tornou publico apenas após a data de entrega do trabalho.
 Todo o histórico de desenvolvimento do trabalho também se encontra no repositório do github.
+
+Nota: Os arquivos de documentação gerados pelo doxygen não estão incluidos no repositório,
+mas foram disponibilizados diretamente neste arquivo .zip de entrega do trabalho. Fiz isso
+porque considerei que os arquivos de doxygen poderiam poluir demais a estrutura de analytics
+do projeto no GitHub.
+
+Qualquer outras dúvidas, entrar em contato via e-mail: samuel.jlbsb@gmail.com.
+
+Obrigado.
