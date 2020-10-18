@@ -10,7 +10,7 @@ Métodos de Programação - 2020/1
 ## Observações
 
 + Este trabalho foi feito em C++ e faz uso de classes, métodos virtuais, interfaces e [templates](http://www.cplusplus.com/doc/oldtutorial/templates/).
-<br>
+
 + A codificação de pilha foi dividida em duas classes: 
     - PilhaEncadeada 
     - PilhaVetor
@@ -24,19 +24,19 @@ Métodos de Programação - 2020/1
 ## Organização do Trabalho
 
 ### Diretórios
-####bin/
+#### bin/
 Contém os arquivos binários gerados pelo compilador.
 
-####doxygen/
+#### doxygen/
 Contém os arquivos da documentação gerada pelo doxygen.
 
-####gcov/
+#### gcov/
 Contém os arquivos gerados pelo ```gcov```
 
-####include/
+#### include/
 Contém os cabeçalhos (headers) da minha biblioteca de Pilha.
 
-####source/
+#### source/
 Contém as implementações de Pilha em C++.
 
 
